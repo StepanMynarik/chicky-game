@@ -24,6 +24,7 @@ html, body {
 }
 
 .score-counter {
+   text-align: center;
    font-family: 'Permanent Marker', cursive;
    font-size: 6rem;
    color: cornflowerblue;
