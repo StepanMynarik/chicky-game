@@ -20,7 +20,7 @@ const getInterval = () => {
 };
 
 const randomizeChickyPosition = () => {
-  const width = chicky.clientWidth * 0.5;
+  const width = chicky.clientWidth;
   const maxX = Math.max(container.clientWidth - width, width);
   chicky.style.left = `${maxX * Math.random()}px`;
 
