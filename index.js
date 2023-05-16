@@ -5,9 +5,16 @@ const baseInterval = 4000;
 let container = document.querySelector("#container");
 let chicky = document.querySelector("#chicky");
 
+const lerp = (a, b, t) => a + (b - a) * t;
+
 const randomizeChickyPosition = () => {
-	chicky.style.left = `${Math.random() * Math.max(container.clientWidth - chicky.clientWidth * 0.5, 0)}px`;
-  chicky.style.top = `${Math.random() * Math.max(container.clientHeight - chicky.clientHeight * 0.5, 0)}px`;
+  const minX = chicky.clientWidth * 0.5;
+  const maxX = Math.max(container.clientWidth - minX, minX);
+  chicky.style.left = `${Math.random() * lerp(minX, maxX)}px`;
+
+  const minY = chicky.clientHeight * 0.5;
+  const maxY = Math.max(container.clientHeight - minY, minY);
+  chicky.style.top = `${Math.random() * lerp(minY, maxY)}px`;
 };
 randomizeChickyPosition();
 let randomizeIntervalId = setInterval(randomizeChickyPosition, baseInterval);
@@ -17,8 +24,8 @@ const beep = () => {
   beepInstance.play();
 }
 const onClick = (e) => {
-	if (e.button !== 0) {
-  	return;
+  if (e.button !== 0) {
+    return;
   }
   
   beep();
