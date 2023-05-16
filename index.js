@@ -4,6 +4,7 @@ const minDifficultyInterval = 1000;
 const maxDifficultyInterval = Math.max(4000, minDifficultyInterval);
 const difficultyDiff = maxDifficultyInterval - minDifficultyInterval;
 const difficultyWindow = 0.5;
+const difficultyIncrement = 0.1;
 let difficultyT = 0;
 
 let container = document.querySelector("#container");
@@ -38,8 +39,11 @@ const onClick = (e) => {
     return;
   }
   
-  beep();
   clearInterval(randomizeIntervalId);
+  
+  beep();
+  
+  difficultyT = Math.min(difficultyT + difficultyIncrement, 1);
   randomizeChickyPosition();
   randomizeIntervalId = setInterval(randomizeChickyPosition, getInterval());
 };
