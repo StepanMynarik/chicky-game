@@ -12,6 +12,8 @@ html, body {
 
 .score-counter {
    font-family: 'Permanent Marker', cursive;
+   font-size: 6rem;
+   color: cornflowerblue;
 }
 
 img {
