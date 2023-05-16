@@ -10,11 +10,11 @@ const lerp = (a, b, t) => a + (b - a) * t;
 const randomizeChickyPosition = () => {
   const minX = chicky.clientWidth * 0.5;
   const maxX = Math.max(container.clientWidth - minX, minX);
-  chicky.style.left = `${Math.random() * lerp(minX, maxX)}px`;
+  chicky.style.left = `${lerp(minX, maxX, Math.random())}px`;
 
   const minY = chicky.clientHeight * 0.5;
   const maxY = Math.max(container.clientHeight - minY, minY);
-  chicky.style.top = `${Math.random() * lerp(minY, maxY)}px`;
+  chicky.style.top = `${lerp(minY, maxY, Math.random())}px`;
 };
 randomizeChickyPosition();
 let randomizeIntervalId = setInterval(randomizeChickyPosition, baseInterval);
