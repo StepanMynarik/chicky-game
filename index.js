@@ -8,8 +8,9 @@ const minDifficultyIncrement = 0.05;
 const maxDifficultyIncrement = Math.max(0.1, minDifficultyIncrement);
 let difficultyT = 0;
 
-let container = document.querySelector("#container");
-let chicky = document.querySelector("#chicky");
+let container = document.querySelector(".container");
+let scoreCounter = document.querySelector(".score-counter");
+let chicky = document.querySelector(".chicky");
 
 const lerp = (a, b, t) => a + (b - a) * t;
 
