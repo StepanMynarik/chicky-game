@@ -20,13 +20,13 @@ const getInterval = () => {
 };
 
 const randomizeChickyPosition = () => {
-  const minX = chicky.clientWidth * 0.5;
-  const maxX = Math.max(container.clientWidth - minX, minX);
-  chicky.style.left = `${lerp(minX, maxX, Math.random())}px`;
+  const width = chicky.clientWidth * 0.5;
+  const maxX = Math.max(container.clientWidth - width, width);
+  chicky.style.left = `${maxX * Math.random()}px`;
 
-  const minY = chicky.clientHeight * 0.5;
-  const maxY = Math.max(container.clientHeight - minY, minY);
-  chicky.style.top = `${lerp(minY, maxY, Math.random())}px`;
+  const height = chicky.clientHeight;
+  const maxY = Math.max(container.clientHeight - height, height);
+  chicky.style.top = `${maxY * Math.random()}px`;
 };
 randomizeChickyPosition();
 let randomizeIntervalId = setInterval(randomizeChickyPosition, getInterval());
