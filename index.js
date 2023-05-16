@@ -1,7 +1,7 @@
 const hitAudioSFX = new Audio('Chicky.wav');
 const playHitSFX = () => {
   hitAudioSFX.pause();
-  hitAudioSFX.time = 0;
+  hitAudioSFX.currentTime = 0;
   hitAudioSFX.play();
 };
 
