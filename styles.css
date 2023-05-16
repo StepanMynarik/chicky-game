@@ -2,6 +2,7 @@ html, body {
    margin: 0;
    padding: 0;
    overflow: hidden;
+   touch-action: manipulation;
 }
 
 .unselectable {
@@ -37,5 +38,4 @@ html, body {
    height: 0;
    position: absolute;
    transition: width 0.1s ease, height 0.1s ease, left 0.1s ease, top 0.1s ease;
-   touch-action: manipulation;
 }
