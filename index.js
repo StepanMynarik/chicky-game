@@ -17,7 +17,7 @@ let chicky = document.querySelector(".chicky");
 let score = 0;
 scoreCounter.textContent = score.toString();
 
-chicky.height = chicky.width = minDifficultyActorSize;
+chicky.style.height = chicky.style.width = minDifficultyActorSize;
 
 const lerp = (a, b, t) => a + (b - a) * t;
 
@@ -55,7 +55,7 @@ const onClick = (e) => {
   
   const difficultyIncrement = lerp(minDifficultyIncrement, maxDifficultyIncrement, Math.random());
   difficultyT = Math.min(difficultyT + difficultyIncrement, 1);
-  chicky.height = chicky.width = lerp(minDifficultyActorSize, maxDifficultyActorSize, difficultyT);
+  chicky.style.height = chicky.style.width = lerp(minDifficultyActorSize, maxDifficultyActorSize, difficultyT);
   randomizeChickyPosition();
   randomizeIntervalId = setInterval(randomizeChickyPosition, getInterval());
 };
