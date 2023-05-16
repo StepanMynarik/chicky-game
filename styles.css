@@ -28,6 +28,8 @@ html, body {
    font-family: 'Permanent Marker', cursive;
    font-size: 6rem;
    color: cornflowerblue;
+   z-index: 1;
+   pointer-events: none;
 }
 
 .chicky {
