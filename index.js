@@ -12,6 +12,9 @@ let container = document.querySelector(".container");
 let scoreCounter = document.querySelector(".score-counter");
 let chicky = document.querySelector(".chicky");
 
+let score = 0;
+scoreCounter.textContent = score.toString();
+
 const lerp = (a, b, t) => a + (b - a) * t;
 
 const getInterval = () => {
@@ -44,6 +47,7 @@ const onClick = (e) => {
   clearInterval(randomizeIntervalId);
   
   beep();
+  scoreCounter.textContent = (++score).toString();
   
   const difficultyIncrement = lerp(minDifficultyIncrement, maxDifficultyIncrement, Math.random());
   difficultyT = Math.min(difficultyT + difficultyIncrement, 1);
