@@ -4,7 +4,7 @@ const minDifficultyActorSize = 50;
 const maxDifficultyActorSize = Math.min(30, minDifficultyActorSize);
 const minDifficultyInterval = 4000;
 const maxDifficultyInterval = Math.min(300, minDifficultyInterval);
-const difficultyDiff = maxDifficultyInterval - minDifficultyInterval;
+const difficultyDiff = minDifficultyInterval - maxDifficultyInterval;
 const difficultyWindow = 300;
 const difficultyMinIncrement = 0.05;
 const difficultyMaxIncrement = Math.max(0.1, difficultyMinIncrement);
@@ -23,8 +23,8 @@ chicky.style.height = chicky.style.width = `${actorSize}px`;
 const lerp = (a, b, t) => a + (b - a) * t;
 
 const getInterval = () => {
-  const minInterval = maxDifficultyInterval - difficultyDiff * difficultyT;
-  const maxInterval = Math.min(minInterval + difficultyWindow, maxDifficultyInterval);
+  const minInterval = minDifficultyInterval - difficultyDiff * difficultyT;
+  const maxInterval = Math.min(minInterval + difficultyWindow, minDifficultyInterval);
   return lerp(minInterval, maxInterval, Math.random());
 };
 
