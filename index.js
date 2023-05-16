@@ -43,9 +43,9 @@ const beep = () => {
   beepInstance.play();
 }
 const onClick = (e) => {
-  if (e.which !== 1) {
+  /*if (e.which !== 1) {
     return;
-  }
+  }*/
   
   clearInterval(randomizeIntervalId);
   
