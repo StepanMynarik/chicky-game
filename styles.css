@@ -10,6 +10,10 @@ html, body {
    position: relative;
 }
 
+.score-counter {
+   font-family: 'Permanent Marker', cursive;
+}
+
 img {
    -ms-user-select: none;      /* IE 10+ */
    -moz-user-select: none;     /* Firefox all */
