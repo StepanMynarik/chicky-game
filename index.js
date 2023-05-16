@@ -58,5 +58,10 @@ const onClick = (e) => {
   chicky.style.height = chicky.style.width = `${actorSize}px`;
   randomizeChickyPosition();
   randomizeIntervalId = setInterval(randomizeChickyPosition, getInterval());
+  
+  if (score === 15) {
+    var uri = "vnd.youtube://www.youtube.com/results?search_query=chicky";
+    window.location.href = uri;
+  }
 };
 chicky.addEventListener("pointerdown", onClick);
