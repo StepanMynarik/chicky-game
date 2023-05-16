@@ -40,7 +40,7 @@ const beep = () => {
   beepInstance.play();
 }
 const onClick = (e) => {
-  if (e.button !== 0) {
+  if (e.which !== 1) {
     return;
   }
   
@@ -54,4 +54,4 @@ const onClick = (e) => {
   randomizeChickyPosition();
   randomizeIntervalId = setInterval(randomizeChickyPosition, getInterval());
 };
-chicky.addEventListener("click", onClick);
+chicky.addEventListener("pointerdown", onClick);
