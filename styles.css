@@ -10,3 +10,7 @@ img {
    -webkit-user-select: none;  /* Chrome all / Safari all */
    user-select: none;          /* Likely future */      
 }
+
+#chicky {
+   transition: left 0.1s ease, top 0.1s ease;
+}
