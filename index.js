@@ -40,6 +40,8 @@ randomizeChickyPosition();
 let randomizeIntervalId = setInterval(randomizeChickyPosition, getInterval());
 
 const beep = () => {
+  hitAudio.pause();
+  hitAudio.currentTime = 0;
   hitAudio.play();
 }
 const onClick = (e) => {
