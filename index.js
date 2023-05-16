@@ -43,9 +43,9 @@ const beep = () => {
   beepInstance.play();
 }
 const onClick = (e) => {
-  /*if (e.which !== 1) {
-    return;
-  }*/
+  if (event.cancelable) {
+    event.preventDefault();
+  }
   
   clearInterval(randomizeIntervalId);
   
@@ -64,4 +64,5 @@ const onClick = (e) => {
     window.location.href = uri;
   }
 };
-chicky.addEventListener("pointerdown", onClick);
+chicky.addEventListener("mousedown", onClick);
+chicky.addEventListener("touchstart", onClick);
