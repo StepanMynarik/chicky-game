@@ -29,12 +29,10 @@ const getInterval = () => {
 };
 
 const randomizeChickyPosition = () => {
-  const width = chicky.clientWidth;
-  const maxX = Math.max(container.clientWidth - width, width);
+  const maxX = Math.max(container.clientWidth - actorSize, actorSize);
   chicky.style.left = `${maxX * Math.random()}px`;
 
-  const height = chicky.clientHeight;
-  const maxY = Math.max(container.clientHeight - height, height);
+  const maxY = Math.max(container.clientHeight - actorSize, actorSize);
   chicky.style.top = `${maxY * Math.random()}px`;
 };
 randomizeChickyPosition();
