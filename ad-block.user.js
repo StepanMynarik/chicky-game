@@ -1,12 +1,23 @@
 // ==UserScript==
 // @name         Ad-Block
 // @match        *://*/*
-// @include      *://*/*
 // @run-at       document-end
 // ==/UserScript==
 
 (function () {
-  const style = document.createElement('style');
-  style.textContent = '[role=presentation], [role=presentation] * { pointer-events: none !important; }';
-  document.head.appendChild(style);
+  const iframe = document.querySelector('iframe[src*="calendar.google.com"]');
+  const veil = document.createElement('div');
+  
+  const rect = iframe.getBoundingClientRect();
+  veil.style.cssText = `
+    position: fixed;
+    top: ${rect.top}px;
+    left: ${rect.left}px;
+    width: ${rect.width}px;
+    height: ${rect.height}px;
+    z-index: 9999;
+    cursor: default;
+  `;
+  
+  document.body.appendChild(veil);
 })();
