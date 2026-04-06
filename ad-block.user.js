@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ad-Block
-// @match        https://calendar.google.com/*
-// @include      https://calendar.google.com/*
+// @match        *://*/*
+// @include      *://*/*
 // @run-at       document-end
 // ==/UserScript==
 
