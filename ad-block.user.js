@@ -46,7 +46,7 @@
     left: ${rect.left}px;
     width: ${rect.width}px;
     height: ${rect.height}px;
-    z-index: 9999;
+    z-index: 99;
     cursor: default;
   `;
   document.body.appendChild(veil);
