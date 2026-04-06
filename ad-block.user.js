@@ -1,20 +1,29 @@
 // ==UserScript==
 // @name         Ad-Block
-// @match        *://*/*
-// @run-at       document-end
+// @match        https://calendar.google.com/*
+// @run-at       document-start
 // ==/UserScript==
 
 (function () {
-  const SELECTORS = [
-    '[role=presentation]',
-  ];
+  const registry = new WeakMap();
+  const orig = EventTarget.prototype.addEventListener;
 
-  const strip = el => {
-    const clone = el.cloneNode(true);
-    el.replaceWith(clone);
+  EventTarget.prototype.addEventListener = function (type, listener, options) {
+    if (!registry.has(this)) registry.set(this, []);
+    registry.get(this).push({ type, listener, options });
+    return orig.call(this, type, listener, options);
   };
 
-  SELECTORS
-    .flatMap(sel => [...document.querySelectorAll(sel)])
-    .forEach(strip);
+  window.__removeHandlers = (selector, eventType) => {
+    document.querySelectorAll(selector).forEach(el => {
+      const listeners = registry.get(el) || [];
+      listeners
+        .filter(l => l.type === eventType)
+        .forEach(({ type, listener, options }) => {
+          el.removeEventListener(type, listener, options);
+        });
+    });
+  };
+  
+  setInterval(() => window.__removeHandlers('[role=presentation]', 'click'), 500);
 })();
